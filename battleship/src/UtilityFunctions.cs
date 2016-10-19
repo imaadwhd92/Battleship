@@ -1,9 +1,10 @@
-using Microsoft.VisualBasic;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using SwinGameSDK;
+
 using static GameController;
 using static GameResources;
 using static DeploymentController;
@@ -11,6 +12,7 @@ using static DiscoveryController;
 using static EndingGameController;
 using static MenuController;
 using static HighScoreController;
+
 /// <summary>
 /// This includes a number of utility methods for
 /// drawing and interacting with the Mouse.
@@ -77,7 +79,7 @@ static class UtilityFunctions
 	/// <summary>
 	/// Draws a large field using the grid and the indicated player's ships.
 	/// </summary>
-	/// <param name="grid">the grid to draw</param>
+	/// <param name="grid">the grid	 to draw</param>
 	/// <param name="thePlayer">the players ships to show</param>
 	/// <param name="showShips">indicates if the ships should be shown</param>
 	public static void DrawField(ISeaGrid grid, Player thePlayer, bool showShips)
@@ -139,10 +141,7 @@ static class UtilityFunctions
 
 				draw = true;
 
-				switch (grid.Item(row, col)) {
-					case TileView.Ship:
-						draw = false;
-						break;
+				switch (grid[row, col]) {
 					//If small Then fillColor = _SMALL_SHIP Else fillColor = _LARGE_SHIP
 					case TileView.Miss:
 						if (small)
@@ -157,7 +156,7 @@ static class UtilityFunctions
 							fillColor = LARGE_HIT;
 						break;
 					case TileView.Sea:
-					case TileView.Ship:
+					/*case TileView.Ship:*/
 						if (small)
 							fillColor = SMALL_SEA;
 						else
@@ -293,7 +292,7 @@ static class UtilityFunctions
 		List<Sprite> ended = new List<Sprite>();
 		foreach (Sprite s in _Animations) {
 			SwinGame.UpdateSprite(s);
-			if (s.animationHasEnded) {
+			if (s.AnimationHasEnded) {
 				ended.Add(s);
 			}
 		}

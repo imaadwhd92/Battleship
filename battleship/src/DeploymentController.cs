@@ -1,5 +1,3 @@
-
-using Microsoft.VisualBasic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,6 +10,7 @@ using static DiscoveryController;
 using static EndingGameController;
 using static MenuController;
 using static HighScoreController;
+///*
 /// <summary>
 /// The DeploymentController controls the players actions
 /// during the deployment phase.
@@ -52,14 +51,14 @@ static class DeploymentController
 	/// </remarks>
 	public static void HandleDeploymentInput()
 	{
-		if (SwinGame.KeyTyped(KeyCode.VK_ESCAPE)) {
+		if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) {
 			AddNewState(GameState.ViewingGameMenu);
 		}
 
-		if (SwinGame.KeyTyped(KeyCode.VK_UP) | SwinGame.KeyTyped(KeyCode.VK_DOWN)) {
+		if (SwinGame.KeyTyped(KeyCode.vk_UP) | SwinGame.KeyTyped(KeyCode.vk_DOWN)) {
 			_currentDirection = Direction.UpDown;
 		}
-		if (SwinGame.KeyTyped(KeyCode.VK_LEFT) | SwinGame.KeyTyped(KeyCode.VK_RIGHT)) {
+		if (SwinGame.KeyTyped(KeyCode.vk_LEFT) | SwinGame.KeyTyped(KeyCode.vk_RIGHT)) {
 			_currentDirection = Direction.LeftRight;
 		}
 

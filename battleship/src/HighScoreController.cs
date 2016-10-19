@@ -1,18 +1,16 @@
-
-using Microsoft.VisualBasic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using SwinGameSDK;
+
 using static GameController;
 using static UtilityFunctions;
-using static GameResources;
-using static DeploymentController;
 using static DiscoveryController;
 using static EndingGameController;
 using static MenuController;
+
 /// <summary>
 /// Controls displaying and collecting high score data.
 /// </summary>
@@ -137,7 +135,7 @@ static class HighScoreController
 		for (i = 0; i <= _Scores.Count - 1; i++) {
 			Score s = default(Score);
 
-			s = _Scores.Item(i);
+			s = _Scores[i];
 
 			//for scores 1 - 9 use 01 - 09
 			if (i < 9) {
@@ -154,7 +152,7 @@ static class HighScoreController
 	/// <remarks></remarks>
 	public static void HandleHighScoreInput()
 	{
-		if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.VK_ESCAPE) || SwinGame.KeyTyped(KeyCode.VK_RETURN)) {
+		if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.vk_ESCAPE) || SwinGame.KeyTyped(KeyCode.vk_RETURN)) {
 			EndCurrentState();
 		}
 	}
@@ -174,7 +172,7 @@ static class HighScoreController
 			LoadScores();
 
 		//is it a high score
-		if (value > _Scores.Item(_Scores.Count - 1).Value) {
+		if (value > _Scores[_Scores.Count - 1].Value) {
 			Score s = new Score();
 			s.Value = value;
 

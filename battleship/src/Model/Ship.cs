@@ -1,9 +1,7 @@
 
-using Microsoft.VisualBasic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-// using System.Data;
 using System.Diagnostics;
 /// <summary>
 /// A Ship has all the details about itself. For example the shipname,
@@ -24,7 +22,7 @@ public class Ship
 
 	private Direction _direction;
 	/// <summary>
-	/// The type of ship
+	/// The type of ship`	
 	/// </summary>
 	/// <value>The type of ship</value>
 	/// <returns>The type of ship</returns>

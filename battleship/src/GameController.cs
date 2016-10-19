@@ -1,16 +1,17 @@
-using Microsoft.VisualBasic;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using SwinGameSDK;
 using static UtilityFunctions;
-using static GameResources;
+using static GameResources ;
 using static DeploymentController;
 using static DiscoveryController;
 using static EndingGameController;
 using static MenuController;
 using static HighScoreController;
+
 /// <summary>
 /// The GameController is responsible for controlling the game,
 /// managing user input, and displaying the current state of the
@@ -26,7 +27,7 @@ public static class GameController
 
 	private static Stack<GameState> _state = new Stack<GameState>();
 
-	private static AIOption _aiSetting;
+	private static AIOption _aiSetting; 
 	/// <summary>
 	/// Returns the current state of the game, indicating which screen is
 	/// currently being used
