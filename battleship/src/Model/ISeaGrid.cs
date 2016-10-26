@@ -1,26 +1,28 @@
-
 using Microsoft.VisualBasic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-// using System.Data;
 using System.Diagnostics;
-/// <summary>
+
+
+/// <info>
 /// The ISeaGrid defines the read only interface of a Grid. This
 /// allows each player to see and attack their opponents grid.
-/// </summary>
+/// </info>
+
+
 public interface ISeaGrid
 {
-
-
+	
 	int Width { get; }
-
 	int Height { get; }
+
 	/// <summary>
 	/// Indicates that the grid has changed.
 	/// </summary>
 
 	event EventHandler Changed;
+
 	/// <summary>
 	/// Provides access to the given row/column
 	/// </summary>
@@ -37,12 +39,16 @@ public interface ISeaGrid
 	/// <param name="row">the row of the tile</param>
 	/// <param name="col">the column of the tile</param>
 	/// <returns>the result of the attack</returns>
+
 	AttackResult HitTile(int row, int col);
 }
 
+
+
+
 //=======================================================
-//Service provided by Telerik (www.telerik.com)
+//Converted using Telerik (www.telerik.com)
 //Conversion powered by NRefactory.
-//Twitter: @telerik
-//Facebook: facebook.com/telerik
+// SWE20001 - Group 2- (Thursday 3.30-5.30)
+// Team - Imaad, Bexultan, Malin, Chandima
 //=======================================================

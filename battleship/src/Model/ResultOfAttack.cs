@@ -1,11 +1,16 @@
-
+using Microsoft.VisualBasic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-/// <summary>
-/// The result of an attack.
-/// </summary>
+
+
+/// <Info>
+/// This file contains detalis when an Attack is conducted
+/// </Info>
+
+
+
 public enum ResultOfAttack
 {
 	/// <summary>
@@ -35,8 +40,8 @@ public enum ResultOfAttack
 }
 
 //=======================================================
-//Service provided by Telerik (www.telerik.com)
+//Converted using Telerik (www.telerik.com)
 //Conversion powered by NRefactory.
-//Twitter: @telerik
-//Facebook: facebook.com/telerik
+// SWE20001 - Group 2- (Thursday 3.30-5.30)
+// Team - Imaad, Bexultan, Malin, Chandima
 //=======================================================
