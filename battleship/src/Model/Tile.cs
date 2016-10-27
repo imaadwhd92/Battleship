@@ -1,4 +1,4 @@
-
+using Microsoft.VisualBasic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,13 +10,13 @@ using System.Diagnostics;
 /// </summary>
 public class Tile
 {
-		//the row value of the tile
+	//the row value of the tile
 	private readonly int _RowValue;
-		//the column value of the tile
+	//the column value of the tile
 	private readonly int _ColumnValue;
-		//the ship the tile belongs to
+	//the ship the tile belongs to
 	private Ship _Ship = null;
-		//the tile has been shot at
+	//the tile has been shot at
 	private bool _Shot = false;
 
 	/// <summary>
@@ -130,8 +130,8 @@ public class Tile
 }
 
 //=======================================================
-//Service provided by Telerik (www.telerik.com)
+//Converted using Telerik (www.telerik.com)
 //Conversion powered by NRefactory.
-//Twitter: @telerik
-//Facebook: facebook.com/telerik
+// SWE20001 - Group 2- (Thursday 3.30-5.30)
+// Team - Imaad, Bexultan, Malin, Chandima
 //=======================================================

@@ -1,13 +1,17 @@
-
+using Microsoft.VisualBasic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-// using System.Data;
 using System.Diagnostics;
+
+
 /// <summary>
 /// Player has its own _PlayerGrid, and can see an _EnemyGrid, it can also check if
 /// all ships are deployed and if all ships are detroyed. A Player can also attach.
 /// </summary>
+
+
+
 public class Player : IEnumerable<Ship>
 {
 
@@ -26,7 +30,8 @@ public class Player : IEnumerable<Ship>
 	/// </summary>
 	/// <value>The game</value>
 	/// <returns>The game that the player is playing</returns>
-	public BattleShipsGame Game {
+	public BattleShipsGame Game 
+	{
 		get { return _game; }
 		set { _game = value; }
 	}
@@ -35,7 +40,8 @@ public class Player : IEnumerable<Ship>
 	/// Sets the grid of the enemy player
 	/// </summary>
 	/// <value>The enemy's sea grid</value>
-	public ISeaGrid Enemy {
+	public ISeaGrid Enemy
+	{
 		set { _enemyGrid = value; }
 	}
 
@@ -45,8 +51,10 @@ public class Player : IEnumerable<Ship>
     _playerGrid = new SeaGrid(_Ships);
 
 		//for each ship add the ships name so the seagrid knows about them
-		foreach (ShipName name in Enum.GetValues(typeof(ShipName))) {
-			if (name != ShipName.None) {
+		foreach (ShipName name in Enum.GetValues(typeof(ShipName))) 
+		{
+			if (name != ShipName.None)
+			{
 				_Ships.Add(name, new Ship(name));
 			}
 		}
@@ -57,55 +65,67 @@ public class Player : IEnumerable<Ship>
 	/// <summary>
 	/// The EnemyGrid is a ISeaGrid because you shouldn't be allowed to see the enemies ships
 	/// </summary>
-	public ISeaGrid EnemyGrid {
+	public ISeaGrid EnemyGrid
+	{
 		get { return _enemyGrid; }
 		set { _enemyGrid = value; }
+
 	}
 
 	/// <summary>
 	/// The PlayerGrid is just a normal SeaGrid where the players ships can be deployed and seen
 	/// </summary>
-	public SeaGrid PlayerGrid {
+	public SeaGrid PlayerGrid
+	{
 		get { return _playerGrid; }
+
 	}
 
 	/// <summary>
 	/// ReadyToDeploy returns true if all ships are deployed
 	/// </summary>
-	public bool ReadyToDeploy {
+	public bool ReadyToDeploy
+	{
 		get { return _playerGrid.AllDeployed; }
+
 	}
 
 	public bool IsDestroyed {
-//Check if all ships are destroyed... -1 for the none ship
+	//Check if all ships are destroyed... -1 for the none ship
 		get { return _playerGrid.ShipsKilled == Enum.GetValues(typeof(ShipName)).Length - 1; }
 	}
 
 	/// <summary>
 	/// Returns the Player's ship with the given name.
 	/// </summary>
-	/// <param name="name">the name of the ship to return</param>
-	/// <value>The ship</value>
-	/// <returns>The ship with the indicated name</returns>
-	/// <remarks>The none ship returns nothing/null</remarks>
-	public Ship Ship(ShipName name) {
+
+
+
+	public Ship Ship(ShipName name) 
+	{
 		if (name == ShipName.None)
 			return null;
 
 		return _Ships[name];
+
 	}
+
 
 	/// <summary>
 	/// The number of shots the player has made
 	/// </summary>
 	/// <value>shots taken</value>
 	/// <returns>teh number of shots taken</returns>
-	public int Shots {
+	public int Shots
+	{
 		get { return _shots; }
+
 	}
 
-	public int Hits {
+	public int Hits
+	{
 		get { return _hits; }
+
 	}
 
 	/// <summary>
@@ -113,15 +133,23 @@ public class Player : IEnumerable<Ship>
 	/// </summary>
 	/// <value>miss count</value>
 	/// <returns>the number of shots that have missed ships</returns>
-	public int Missed {
+	public int Missed
+	{
 		get { return _misses; }
+
 	}
 
-	public int Score {
-		get {
-			if (IsDestroyed) {
+	public int Score 
+	{
+		get
+		{
+			if (IsDestroyed)
+			{
 				return 0;
-			} else {
+
+			}
+			else
+			{
 				return (Hits * 12) - Shots - (PlayerGrid.ShipsKilled * 20);
 			}
 		}
@@ -132,6 +160,7 @@ public class Player : IEnumerable<Ship>
 	/// has.
 	/// </summary>
 	/// <returns>A Ship enumerator</returns>
+
 	public IEnumerator<Ship> GetShipEnumerator()
 	{
 		Ship[] result = new Ship[_Ships.Values.Count + 1];
@@ -151,22 +180,22 @@ public class Player : IEnumerable<Ship>
 	/// has.
 	/// </summary>
 	/// <returns>A Ship enumerator</returns>
+
 	public IEnumerator GetEnumerator()
 	{
 		Ship[] result = new Ship[_Ships.Values.Count + 1];
 		_Ships.Values.CopyTo(result, 0);
 		List<Ship> lst = new List<Ship>();
 		lst.AddRange(result);
-
 		return lst.GetEnumerator();
 	}
 
 	/// <summary>
 	/// Vitual Attack allows the player to shoot
 	/// </summary>
+
 	public virtual AttackResult Attack()
 	{
-		//human does nothing here...
 		return null;
 	}
 
@@ -176,6 +205,7 @@ public class Player : IEnumerable<Ship>
 	/// <param name="row">the row to attack</param>
 	/// <param name="col">the column to attack</param>
 	/// <returns>the result of the attack</returns>
+
 	internal AttackResult Shoot(int row, int col)
 	{
 		_shots += 1;
@@ -233,9 +263,11 @@ public class Player : IEnumerable<Ship>
 	}
 }
 
+
+
 //=======================================================
-//Service provided by Telerik (www.telerik.com)
+//Converted using Telerik (www.telerik.com)
 //Conversion powered by NRefactory.
-//Twitter: @telerik
-//Facebook: facebook.com/telerik
+// SWE20001 - Group 2- (Thursday 3.30-5.30)
+// Team - Imaad, Bexultan, Malin, Chandima
 //=======================================================

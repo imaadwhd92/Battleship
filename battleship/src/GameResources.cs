@@ -1,8 +1,9 @@
+using Microsoft.VisualBasic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using SwinGameSDK;.
+using SwinGameSDK;
 
 
 public static class GameResources
@@ -29,7 +30,7 @@ public static class GameResources
 		NewImage("SelectedShip", "deploy_button_hl.png");
 		NewImage("PlayButton", "deploy_play_button.png");
 		NewImage("RandomButton", "deploy_randomize_button.png");
-
+	
 		//Ships
 		int i = 0;
 		for (i = 1; i <= 5; i++) {
@@ -303,8 +304,8 @@ public static class GameResources
 }
 
 //=======================================================
-//Service provided by Telerik (www.telerik.com)
+//Converted using Telerik (www.telerik.com)
 //Conversion powered by NRefactory.
-//Twitter: @telerik
-//Facebook: facebook.com/telerik
+// SWE20001 - Group 2- (Thursday 3.30-5.30)
+// Team - Imaad, Bexultan, Malin, Chandima
 //=======================================================

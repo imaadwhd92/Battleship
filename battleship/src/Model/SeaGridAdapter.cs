@@ -1,17 +1,17 @@
-
+using Microsoft.VisualBasic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-// using System.Data;
 using System.Diagnostics;
-/// <summary>
-/// The SeaGridAdapter allows for the change in a sea grid view. Whenever a ship is
-/// presented it changes the view into a sea tile instead of a ship tile.
-/// </summary>
+
+
+/// <info>
+/// The SeaGridAdapter allows for the change in a sea grid view. Whenever a ship is presented it changes the view into a sea tile instead of a ship tile.
+/// </info>
+
+
 public class SeaGridAdapter : ISeaGrid
 {
-
-
 	private SeaGrid _MyGrid;
 	/// <summary>
 	/// Create the SeaGridAdapter, with the grid, and it will allow it to be changed
@@ -89,8 +89,8 @@ public class SeaGridAdapter : ISeaGrid
 }
 
 //=======================================================
-//Service provided by Telerik (www.telerik.com)
+//Converted using Telerik (www.telerik.com)
 //Conversion powered by NRefactory.
-//Twitter: @telerik
-//Facebook: facebook.com/telerik
+// SWE20001 - Group 2- (Thursday 3.30-5.30)
+// Team - Imaad, Bexultan, Malin, Chandima
 //=======================================================

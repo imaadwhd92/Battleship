@@ -1,22 +1,18 @@
-
+using Microsoft.VisualBasic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using SwinGameSDK;
 
-using static GameController;
-using static GameResources;
-using static DeploymentController;
-using static DiscoveryController;
-using static EndingGameController;
-using static MenuController;
-using static HighScoreController;
 
 /// <summary>
 /// This includes a number of utility methods for
 /// drawing and interacting with the Mouse.
 /// </summary>
+/// 
+
+
 static class UtilityFunctions
 {
 	public const int FIELD_TOP = 122;
@@ -79,13 +75,13 @@ static class UtilityFunctions
 	/// <summary>
 	/// Draws a large field using the grid and the indicated player's ships.
 	/// </summary>
-	/// <param name="grid">the grid	 to draw</param>
+	/// <param name="grid">the grid to draw</param>
 	/// <param name="thePlayer">the players ships to show</param>
 	/// <param name="showShips">indicates if the ships should be shown</param>
 	public static void DrawField(ISeaGrid grid, Player thePlayer, bool showShips)
 	{
 		DrawCustomField(grid, thePlayer, false, showShips, FIELD_LEFT, FIELD_TOP, FIELD_WIDTH, FIELD_HEIGHT, CELL_WIDTH, CELL_HEIGHT,
-		CELL_GAP);
+			CELL_GAP);
 	}
 
 	/// <summary>
@@ -104,7 +100,7 @@ static class UtilityFunctions
 		const int SMALL_FIELD_CELL_GAP = 4;
 
 		DrawCustomField(grid, thePlayer, true, true, SMALL_FIELD_LEFT, SMALL_FIELD_TOP, SMALL_FIELD_WIDTH, SMALL_FIELD_HEIGHT, SMALL_FIELD_CELL_WIDTH, SMALL_FIELD_CELL_HEIGHT,
-		SMALL_FIELD_CELL_GAP);
+			SMALL_FIELD_CELL_GAP);
 	}
 
 	/// <summary>
@@ -121,8 +117,9 @@ static class UtilityFunctions
 	/// <param name="cellWidth">the width of each cell</param>
 	/// <param name="cellHeight">the height of each cell</param>
 	/// <param name="cellGap">the gap between the cells</param>
+	/// 
 	private static void DrawCustomField(ISeaGrid grid, Player thePlayer, bool small, bool showShips, int left, int top, int width, int height, int cellWidth, int cellHeight,
-	int cellGap)
+		int cellGap)
 	{
 		//SwinGame.FillRectangle(Color.Blue, left, top, width, height)
 
@@ -130,10 +127,12 @@ static class UtilityFunctions
 		int colLeft = 0;
 
 		//Draw the grid
-		for (int row = 0; row <= 9; row++) {
+		for (int row = 0; row <= 9; row++) 
+		{
 			rowTop = top + (cellGap + cellHeight) * row;
 
-			for (int col = 0; col <= 9; col++) {
+			for (int col = 0; col <= 9; col++)
+			{
 				colLeft = left + (cellGap + cellWidth) * col;
 
 				Color fillColor = default(Color);
@@ -141,27 +140,30 @@ static class UtilityFunctions
 
 				draw = true;
 
-				switch (grid[row, col]) {
+				switch (grid[row, col])
+				{
+				case TileView.Ship:
+					draw = false;
+					break;
 					//If small Then fillColor = _SMALL_SHIP Else fillColor = _LARGE_SHIP
-					case TileView.Miss:
-						if (small)
-							fillColor = SMALL_MISS;
-						else
-							fillColor = LARGE_MISS;
-						break;
-					case TileView.Hit:
-						if (small)
-							fillColor = SMALL_HIT;
-						else
-							fillColor = LARGE_HIT;
-						break;
-					case TileView.Sea:
-					/*case TileView.Ship:*/
-						if (small)
-							fillColor = SMALL_SEA;
-						else
-							draw = false;
-						break;
+				case TileView.Miss:
+					if (small)
+						fillColor = SMALL_MISS;
+					else
+						fillColor = LARGE_MISS;
+					break;
+				case TileView.Hit:
+					if (small)
+						fillColor = SMALL_HIT;
+					else
+						fillColor = LARGE_HIT;
+					break;
+				case TileView.Sea:
+					if (small)
+						fillColor = SMALL_SEA;
+					else
+						draw = false;
+					break;
 				}
 
 				if (draw) {
@@ -173,7 +175,8 @@ static class UtilityFunctions
 			}
 		}
 
-		if (!showShips) {
+		if (!showShips)
+		{
 			return;
 		}
 
@@ -188,7 +191,8 @@ static class UtilityFunctions
 			rowTop = top + (cellGap + cellHeight) * s.Row + SHIP_GAP;
 			colLeft = left + (cellGap + cellWidth) * s.Column + SHIP_GAP;
 
-			if (s.Direction == Direction.LeftRight) {
+			if (s.Direction == Direction.LeftRight) 
+			{
 				shipName = "ShipLR" + s.Size;
 				shipHeight = cellHeight - (SHIP_GAP * 2);
 				shipWidth = (cellWidth + cellGap) * s.Size - (SHIP_GAP * 2) - cellGap;
@@ -199,8 +203,9 @@ static class UtilityFunctions
 				shipWidth = cellWidth - (SHIP_GAP * 2);
 			}
 
-			if (!small) {
-				SwinGame.DrawBitmap(GameImage(shipName), colLeft, rowTop);
+			if (!small) 
+			{
+				SwinGame.DrawBitmap(GameResources.GameImage(shipName), colLeft, rowTop);
 			} else {
 				SwinGame.FillRectangle(SHIP_FILL_COLOR, colLeft, rowTop, shipWidth, shipHeight);
 				SwinGame.DrawRectangle(SHIP_OUTLINE_COLOR, colLeft, rowTop, shipWidth, shipHeight);
@@ -213,9 +218,10 @@ static class UtilityFunctions
 	/// <summary>
 	/// The message to display
 	/// </summary>
-	/// <value>The message to display</value>
-	/// <returns>The message to display</returns>
-	public static string Message {
+
+
+	public static string Message 
+	{
 		get { return _message; }
 		set { _message = value; }
 	}
@@ -225,7 +231,7 @@ static class UtilityFunctions
 	/// </summary>
 	public static void DrawMessage()
 	{
-		SwinGame.DrawText(Message, MESSAGE_COLOR, GameFont("Courier"), FIELD_LEFT, MESSAGE_TOP);
+		SwinGame.DrawText(Message, MESSAGE_COLOR, GameResources.GameFont("Courier"), FIELD_LEFT, MESSAGE_TOP);
 	}
 
 	/// <summary>
@@ -234,26 +240,26 @@ static class UtilityFunctions
 
 	public static void DrawBackground()
 	{
-		switch (CurrentState) {
-			case GameState.ViewingMainMenu:
-			case GameState.ViewingGameMenu:
-			case GameState.AlteringSettings:
-			case GameState.ViewingHighScores:
-				SwinGame.DrawBitmap(GameImage("Menu"), 0, 0);
-				break;
-			case GameState.Discovering:
-			case GameState.EndingGame:
-				SwinGame.DrawBitmap(GameImage("Discovery"), 0, 0);
-				break;
-			case GameState.Deploying:
-				SwinGame.DrawBitmap(GameImage("Deploy"), 0, 0);
-				break;
-			default:
-				SwinGame.ClearScreen();
-				break;
+		switch (GameController.CurrentState) {
+		case GameState.ViewingMainMenu:
+		case GameState.ViewingGameMenu:
+		case GameState.AlteringSettings:
+		case GameState.ViewingHighScores:
+			SwinGame.DrawBitmap(GameResources.GameImage("Menu"), 0, 0);
+			break;
+		case GameState.Discovering:
+		case GameState.EndingGame:
+			SwinGame.DrawBitmap(GameResources.GameImage("Discovery"), 0, 0);
+			break;
+		case GameState.Deploying:
+			SwinGame.DrawBitmap(GameResources.GameImage("Deploy"), 0, 0);
+			break;
+		default:
+			SwinGame.ClearScreen();
+			break;
 		}
 
-		SwinGame.DrawFramerate(675, 585, GameFont("CourierSmall"));
+		SwinGame.DrawFramerate(675, 585, GameResources.GameFont("CourierSmall"));
 	}
 
 	public static void AddExplosion(int row, int col)
@@ -273,7 +279,7 @@ static class UtilityFunctions
 		Sprite s = default(Sprite);
 		Bitmap imgObj = default(Bitmap);
 
-		imgObj = GameImage(image);
+		imgObj = GameResources.GameImage(image);
 		imgObj.SetCellDetails(40, 40, 3, 3, 7);
 
 		AnimationScript animation = default(AnimationScript);
@@ -290,9 +296,11 @@ static class UtilityFunctions
 	public static void UpdateAnimations()
 	{
 		List<Sprite> ended = new List<Sprite>();
-		foreach (Sprite s in _Animations) {
+		foreach (Sprite s in _Animations)
+		{
 			SwinGame.UpdateSprite(s);
-			if (s.AnimationHasEnded) {
+			if (s.AnimationHasEnded) 
+			{
 				ended.Add(s);
 			}
 		}
@@ -305,7 +313,8 @@ static class UtilityFunctions
 
 	public static void DrawAnimations()
 	{
-		foreach (Sprite s in _Animations) {
+		foreach (Sprite s in _Animations) 
+		{
 			SwinGame.DrawSprite(s);
 		}
 	}
@@ -313,16 +322,16 @@ static class UtilityFunctions
 	public static void DrawAnimationSequence()
 	{
 		int i = 0;
-		for (i = 1; i <= ANIMATION_CELLS * FRAMES_PER_CELL; i++) {
+		for (i = 1; i <= ANIMATION_CELLS * FRAMES_PER_CELL; i++)
+		{
 			UpdateAnimations();
-			DrawScreen();
+			GameController.DrawScreen();
 		}
 	}
 }
-
 //=======================================================
-//Service provided by Telerik (www.telerik.com)
+//Converted using Telerik (www.telerik.com)
 //Conversion powered by NRefactory.
-//Twitter: @telerik
-//Facebook: facebook.com/telerik
+// SWE20001 - Group 2- (Thursday 3.30-5.30)
+// Team - Imaad, Bexultan, Malin, Chandima
 //=======================================================

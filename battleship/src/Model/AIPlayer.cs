@@ -1,4 +1,4 @@
-
+using Microsoft.VisualBasic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Diagnostics;
 using SwinGameSDK;
 
 /// <summary>
-/// The AIPlayer is a type of player. It can readomly deploy ships, it also has the
+/// The AIPlayer is a type of player. It can read only deploy ships, it also has the
 /// functionality to generate coordinates and shoot at tiles
 /// </summary>
 public abstract class AIPlayer : Player
@@ -140,8 +140,8 @@ public abstract class AIPlayer : Player
 }
 
 //=======================================================
-//Service provided by Telerik (www.telerik.com)
+//Converted using Telerik (www.telerik.com)
 //Conversion powered by NRefactory.
-//Twitter: @telerik
-//Facebook: facebook.com/telerik
+// SWE20001 - Group 2- (Thursday 3.30-5.30)
+// Team - Imaad, Bexultan, Malin, Chandima
 //=======================================================
