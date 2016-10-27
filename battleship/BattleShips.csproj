@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\**\*.cs" />
+    <Compile Include="src\Model\Instruction.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SwinGame">

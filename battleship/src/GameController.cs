@@ -312,37 +312,36 @@ public static class GameController
 	/// </remarks>
 	public static void DrawScreen()
 	{
-		UtilityFunctions.DrawBackground();
+		UtilityFunctions.DrawBackground ();
 
-		switch (CurrentState) {
+		switch (CurrentState)
+		{
 		case GameState.ViewingMainMenu:
-			MenuController.DrawMainMenu();
+			MenuController.DrawMainMenu ();
 			break;
 		case GameState.ViewingGameMenu:
-			MenuController.DrawGameMenu();
+			MenuController.DrawGameMenu ();
 			break;
 		case GameState.AlteringSettings:
-			MenuController.DrawSettings();
+			MenuController.DrawSettings ();
 			break;
 		case GameState.Deploying:
-			DeploymentController.DrawDeployment();
+			DeploymentController.DrawDeployment ();
 			break;
 		case GameState.Discovering:
-			DiscoveryController.DrawDiscovery();
+			DiscoveryController.DrawDiscovery ();
 			break;
 		case GameState.EndingGame:
-			EndingGameController.DrawEndOfGame();
+			EndingGameController.DrawEndOfGame ();
 			break;
 		case GameState.ViewingHighScores:
-			HighScoreController.DrawHighScores();
+			HighScoreController.DrawHighScores ();
 			break;
 		}
+			UtilityFunctions.DrawAnimations ();
 
-		UtilityFunctions.DrawAnimations();
-
-		SwinGame.RefreshScreen();
-	}
-
+			SwinGame.RefreshScreen ();
+		}
 	/// <summary>
 	/// Move the game to a new state. The current state is maintained
 	/// so that it can be returned to.

@@ -23,7 +23,8 @@ static class MenuController
 			"PLAY",
 			"SETUP",
 			"SCORES",
-			"QUIT"
+			"QUIT",
+			"INSTRUCTION"
 		},
 		new string[] {
 			"RETURN",
