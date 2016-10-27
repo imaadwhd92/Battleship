@@ -84,8 +84,16 @@ public static class GameController
 		case AIOption.Hard:
 			_ai = new AIHardPlayer(_theGame);
 			break;
+<<<<<<< HEAD
 		default:
 			_ai = new AIHardPlayer(_theGame);
+=======
+		case AIOption.Easy:
+			_ai = new AIHardPlayer (_theGame);
+			break;
+		default:
+			_ai = new AIMediumPlayer(_theGame);
+>>>>>>> origin
 			break;
 		}
 
@@ -312,6 +320,7 @@ public static class GameController
 	/// </remarks>
 	public static void DrawScreen()
 	{
+<<<<<<< HEAD
 		UtilityFunctions.DrawBackground();
 
 		switch (CurrentState) {
@@ -335,14 +344,46 @@ public static class GameController
 			break;
 		case GameState.ViewingHighScores:
 			HighScoreController.DrawHighScores();
+=======
+		UtilityFunctions.DrawBackground ();
+
+		switch (CurrentState)
+		{
+		case GameState.ViewingMainMenu:
+			MenuController.DrawMainMenu ();
+			break;
+		case GameState.ViewingGameMenu:
+			MenuController.DrawGameMenu ();
+			break;
+		case GameState.AlteringSettings:
+			MenuController.DrawSettings ();
+			break;
+		case GameState.Deploying:
+			DeploymentController.DrawDeployment ();
+			break;
+		case GameState.Discovering:
+			DiscoveryController.DrawDiscovery ();
+			break;
+		case GameState.EndingGame:
+			EndingGameController.DrawEndOfGame ();
+			break;
+		case GameState.ViewingHighScores:
+			HighScoreController.DrawHighScores ();
+>>>>>>> origin
 			break;
 		}
+			UtilityFunctions.DrawAnimations ();
 
+<<<<<<< HEAD
 		UtilityFunctions.DrawAnimations();
 
 		SwinGame.RefreshScreen();
 	}
 
+=======
+			SwinGame.RefreshScreen ();
+		}
+>>>>>>> origin
 	/// <summary>
 	/// Move the game to a new state. The current state is maintained
 	/// so that it can be returned to.

@@ -2,6 +2,7 @@ using Microsoft.VisualBasic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+<<<<<<< HEAD
 //using System.Data;
 using System.Diagnostics;
 using SwinGameSDK;
@@ -11,6 +12,14 @@ using SwinGameSDK;
 /// <summary>
 
 
+=======
+using System.Diagnostics;
+using SwinGameSDK;
+
+/// <Info>
+/// The battle phase is handled by the DiscoveryController.
+/// </Info>
+>>>>>>> origin
 static class DiscoveryController
 {
 
@@ -21,8 +30,12 @@ static class DiscoveryController
 
 	public static void HandleDiscoveryInput()
 	{
+<<<<<<< HEAD
 		if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) 
 		{
+=======
+		if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) {
+>>>>>>> origin
 			GameController.AddNewState(GameState.ViewingGameMenu);
 		}
 
@@ -78,6 +91,7 @@ static class DiscoveryController
 		const int HITS_TOP = 206;
 		const int SPLASH_TOP = 256;
 
+<<<<<<< HEAD
 		if ((SwinGame.KeyDown(KeyCode.vk_LSHIFT) | SwinGame.KeyDown(KeyCode.vk_RSHIFT)) & SwinGame.KeyDown(KeyCode.vk_c))
 		{
 
@@ -85,17 +99,29 @@ static class DiscoveryController
 		} else 
 		{
 		
+=======
+		if ((SwinGame.KeyDown(KeyCode.vk_LSHIFT) | SwinGame.KeyDown(KeyCode.vk_RSHIFT)) & SwinGame.KeyDown(KeyCode.vk_c)) {
+			UtilityFunctions.DrawField(GameController.HumanPlayer.EnemyGrid, GameController.ComputerPlayer, true);
+		} else {
+>>>>>>> origin
 			UtilityFunctions.DrawField(GameController.HumanPlayer.EnemyGrid, GameController.ComputerPlayer, false);
 		}
 
 		UtilityFunctions.DrawSmallField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer);
 		UtilityFunctions.DrawMessage();
+<<<<<<< HEAD
 
 		SwinGame.DrawText(GameController.HumanPlayer.Shots.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, SHOTS_TOP);
 		SwinGame.DrawText(GameController.HumanPlayer.Hits.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, HITS_TOP);
 		SwinGame.DrawText(GameController.HumanPlayer.Missed.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, SPLASH_TOP);
 		SwinGame.DrawTextLines("Main Menu", Color.White, Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, (SwinGame.ScreenWidth()/2)+ 300, 94, 75, 15);
 
+=======
+
+		SwinGame.DrawText(GameController.HumanPlayer.Shots.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, SHOTS_TOP);
+		SwinGame.DrawText(GameController.HumanPlayer.Hits.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, HITS_TOP);
+		SwinGame.DrawText(GameController.HumanPlayer.Missed.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, SPLASH_TOP);
+>>>>>>> origin
 	}
 
 }

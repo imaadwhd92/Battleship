@@ -49,7 +49,11 @@ public enum GameState
 	/// <summary>
 	/// The player has quit. Show ending credits and terminate the game
 	/// </summary>
-	Quitting
+	Quitting,
+
+	///<summary>
+	/// The player is looking for the instruction of the Battleship game
+	/// </summary>
 }
 
 

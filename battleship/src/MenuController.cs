@@ -24,7 +24,11 @@ static class MenuController
 			"SETUP",
 			"SCORES",
 			"QUIT",
+<<<<<<< HEAD
 			"INSTRUCTIONS"
+=======
+			"INSTRUCTION"
+>>>>>>> origin
 		},
 		new string[] {
 			"RETURN",
