@@ -247,6 +247,12 @@ static class UtilityFunctions
 		case GameState.ViewingHighScores:
 			SwinGame.DrawBitmap(GameResources.GameImage("Menu"), 0, 0);
 			break;
+		case GameState.Viewinstructions:
+			SwinGame.DrawBitmap (GameResources.GameImage ("Menu"), 0, 0);
+			//view instructions
+			SwinGame.DrawText ("Instructions On How To Play", Color.White, GameResources.GameFont ("Courier"), 225, 400);
+			SwinGame.DrawText ("The game is played by secretly arranging the ships on the primary grid. Each ship is set on a number of squares on the grid, placed either vertically or horizontally. The number of squares a ship occupies depends on the ships size. Only one ship can occupy a square on the grid at a time, overlapping is not allowed. The number and variants of ships are equal for both the players in a game. The users have to drag and drop the ships into squares of the grid. One players ships are hidden from the other player, if the player hits the correct coordinate that their opponent has placed their ship, it will be crossed with red. If one player places the correct coordinate of the opponents ship, that is an attack and the ship will be sunk, you will notice this in the game with an explosion animation in red. The winner will be selected depending on the number of opponents ships they sink and points are given accordingly.", Color.White, GameResources.GameFont ("Courier"), 0, 425);
+			break;
 		case GameState.Discovering:
 		case GameState.EndingGame:
 			SwinGame.DrawBitmap(GameResources.GameImage("Discovery"), 0, 0);
