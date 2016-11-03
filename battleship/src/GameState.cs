@@ -36,6 +36,7 @@ public enum GameState
 	/// </summary>
 	Deploying,
 
+
 	Viewinstructions,
 	/// <summary>
 	/// Players are attempting to locate each others ships

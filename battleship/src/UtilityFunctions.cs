@@ -250,9 +250,28 @@ static class UtilityFunctions
 		case GameState.Viewinstructions:
 			SwinGame.DrawBitmap (GameResources.GameImage ("Menu"), 0, 0);
 			//view instructions
-			SwinGame.DrawText ("Instructions On How To Play", Color.White, GameResources.GameFont ("Courier"), 225, 400);
-			SwinGame.DrawText ("The game is played by secretly arranging the ships on the primary grid. Each ship is set on a number of squares on the grid, placed either vertically or horizontally. The number of squares a ship occupies depends on the ships size. Only one ship can occupy a square on the grid at a time, overlapping is not allowed. The number and variants of ships are equal for both the players in a game. The users have to drag and drop the ships into squares of the grid. One players ships are hidden from the other player, if the player hits the correct coordinate that their opponent has placed their ship, it will be crossed with red. If one player places the correct coordinate of the opponents ship, that is an attack and the ship will be sunk, you will notice this in the game with an explosion animation in red. The winner will be selected depending on the number of opponents ships they sink and points are given accordingly.", Color.White, GameResources.GameFont ("Courier"), 0, 425);
+			SwinGame.DrawText ("Instructions On How To Play", Color.White, GameResources.GameFont ("Courier"), 25, 5);
+			SwinGame.DrawText ("1. The game is played by secretly arranging the ships on the primary grid.", Color.White, GameResources.GameFont ("Courier"), 5, 40);	
+			SwinGame.DrawText ("2. Each ship is set on a number of squares on the grid, placed either vertically or horizontally.", Color.White, GameResources.GameFont ("Courier"), 5, 60);
+			SwinGame.DrawText ("3. The number of squares a ship occupies depends on the ships size.", Color.White, GameResources.GameFont ("Courier"), 5, 80);
+			SwinGame.DrawText ("4. Only one ship can occupy a square on the grid at a time, overlapping is not allowed.", Color.White, GameResources.GameFont ("Courier"), 5, 100);
+			SwinGame.DrawText ("5. The number and variants of ships are equal for both the players in a game.", Color.White, GameResources.GameFont ("Courier"), 5, 120);
+			SwinGame.DrawText ("6. The users have to drag and drop the ships into squares of the grid.", Color.White, GameResources.GameFont ("Courier"), 5, 140);
+			SwinGame.DrawText ("7. One players ships are hidden from the other player, if the player hits the correct" , Color.White, GameResources.GameFont ("Courier"), 5, 160);
+			SwinGame.DrawText ("coordinate that their opponent has placed their ship, it will be crossed with red.", Color.White, GameResources.GameFont ("Courier"), 5, 175);
+			SwinGame.DrawText ("8. If one player places the correct coordinate of the opponents ship, that is an attack and", Color.White, GameResources.GameFont ("Courier"), 5, 195);
+			SwinGame.DrawText ("the ship will be sunk, you will notice this in the game with an explosion animation in red.", Color.White, GameResources.GameFont ("Courier"), 5, 210);
+			SwinGame.DrawText ("9. The winner will be selected depending on the number of opponents ships they sink" , Color.White, GameResources.GameFont ("Courier"), 5, 230);
+			SwinGame.DrawText ("and points are given accordingly.", Color.White, GameResources.GameFont ("Courier"), 5, 245);
+			SwinGame.DrawText ("PRESS ESC to go back to the main menu", Color.White, GameResources.GameFont ("Courier"), 250, 350);
+			if (SwinGame.KeyTyped (KeyCode.vk_ESCAPE))
+			{
+				GameController.EndCurrentState ();
+			}
 			break;
+
+
+
 		case GameState.Discovering:
 		case GameState.EndingGame:
 			SwinGame.DrawBitmap(GameResources.GameImage("Discovery"), 0, 0);
@@ -264,6 +283,9 @@ static class UtilityFunctions
 			SwinGame.ClearScreen();
 			break;
 		}
+
+
+
 
 		SwinGame.DrawFramerate(675, 585, GameResources.GameFont("CourierSmall"));
 	}
