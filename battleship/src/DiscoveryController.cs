@@ -2,43 +2,70 @@ using Microsoft.VisualBasic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+<<<<<<< HEAD
+//using System.Data;
+using System.Diagnostics;
+using SwinGameSDK;
+
+/// <summary>
+/// The battle phase is handled by the DiscoveryController.
+/// <summary>
+
+
+=======
 using System.Diagnostics;
 using SwinGameSDK;
 
 /// <Info>
 /// The battle phase is handled by the DiscoveryController.
 /// </Info>
+>>>>>>> origin
 static class DiscoveryController
 {
 
 	/// <summary>
 	/// Handles input during the discovery phase of the game.
 	/// </summary>
-	/// <remarks>
-	/// Escape opens the game menu. Clicking the mouse will
-	/// attack a location.
-	/// </remarks>
+
+
 	public static void HandleDiscoveryInput()
 	{
+<<<<<<< HEAD
+		if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) 
+		{
+=======
 		if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) {
+>>>>>>> origin
 			GameController.AddNewState(GameState.ViewingGameMenu);
 		}
 
-		if (SwinGame.MouseClicked(MouseButton.LeftButton)) {
+		if (SwinGame.MouseClicked(MouseButton.LeftButton))
+		{
 			DoAttack();
 		}
+		if (UtilityFunctions.IsMouseInRectangle((SwinGame.ScreenWidth()/2)+ 300, 94, 75, 15) && SwinGame.MouseClicked(MouseButton.LeftButton))
+		{
+			GameController.AddNewState(GameState.ViewingMainMenu);
+		}
+
 	}
 
 	/// <summary>
 	/// Attack the location that the mouse if over.
 	/// </summary>
+
+
+
+
 	private static void DoAttack()
 	{
 		Point2D mouse = default(Point2D);
 
 		mouse = SwinGame.MousePosition();
 
-		//Calculate the row/col clicked
+		//Below Section calculates the row/col clicked
+
+
 		int row = 0;
 		int col = 0;
 		row = Convert.ToInt32(Math.Floor((mouse.Y - UtilityFunctions.FIELD_TOP) / (UtilityFunctions.CELL_HEIGHT + UtilityFunctions.CELL_GAP)));
@@ -52,8 +79,11 @@ static class DiscoveryController
 	}
 
 	/// <summary>
-	/// Draws the game during the attack phase.
-	/// </summary>s
+	///  This section Draws the game during the attack phase.
+	/// </summary>
+
+
+
 	public static void DrawDiscovery()
 	{
 		const int SCORES_LEFT = 172;
@@ -61,21 +91,43 @@ static class DiscoveryController
 		const int HITS_TOP = 206;
 		const int SPLASH_TOP = 256;
 
+<<<<<<< HEAD
+		if ((SwinGame.KeyDown(KeyCode.vk_LSHIFT) | SwinGame.KeyDown(KeyCode.vk_RSHIFT)) & SwinGame.KeyDown(KeyCode.vk_c))
+		{
+
+			UtilityFunctions.DrawField(GameController.HumanPlayer.EnemyGrid, GameController.ComputerPlayer, true);
+		} else 
+		{
+		
+=======
 		if ((SwinGame.KeyDown(KeyCode.vk_LSHIFT) | SwinGame.KeyDown(KeyCode.vk_RSHIFT)) & SwinGame.KeyDown(KeyCode.vk_c)) {
 			UtilityFunctions.DrawField(GameController.HumanPlayer.EnemyGrid, GameController.ComputerPlayer, true);
 		} else {
+>>>>>>> origin
 			UtilityFunctions.DrawField(GameController.HumanPlayer.EnemyGrid, GameController.ComputerPlayer, false);
 		}
 
 		UtilityFunctions.DrawSmallField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer);
 		UtilityFunctions.DrawMessage();
+<<<<<<< HEAD
 
 		SwinGame.DrawText(GameController.HumanPlayer.Shots.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, SHOTS_TOP);
 		SwinGame.DrawText(GameController.HumanPlayer.Hits.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, HITS_TOP);
 		SwinGame.DrawText(GameController.HumanPlayer.Missed.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, SPLASH_TOP);
+		SwinGame.DrawTextLines("Main Menu", Color.White, Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, (SwinGame.ScreenWidth()/2)+ 300, 94, 75, 15);
+
+=======
+
+		SwinGame.DrawText(GameController.HumanPlayer.Shots.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, SHOTS_TOP);
+		SwinGame.DrawText(GameController.HumanPlayer.Hits.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, HITS_TOP);
+		SwinGame.DrawText(GameController.HumanPlayer.Missed.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, SPLASH_TOP);
+>>>>>>> origin
 	}
 
 }
+
+
+
 
 //=======================================================
 //Converted using Telerik (www.telerik.com)

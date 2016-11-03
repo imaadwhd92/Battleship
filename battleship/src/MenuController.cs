@@ -23,8 +23,17 @@ static class MenuController
 			"PLAY",
 			"SETUP",
 			"SCORES",
+<<<<<<< HEAD
 			"MUTE",
 			"QUIT"
+=======
+			"QUIT",
+<<<<<<< HEAD
+			"INSTRUCTIONS"
+=======
+			"INSTRUCTION"
+>>>>>>> origin
+>>>>>>> 1314e20ff95b95ebf5fe56df3cd1a74c6d448c04
 		},
 		new string[] {
 			"RETURN",
@@ -60,17 +69,29 @@ static class MenuController
 	private const int MAIN_MENU_MUTE_BUTTON = 3;
 	private const int MAIN_MENU_QUIT_BUTTON = 4;
 
+<<<<<<< HEAD
 	public const int SETUP_MENU_EASY_BUTTON = 0;
 	public const int SETUP_MENU_MEDIUM_BUTTON = 1;
 	public const int SETUP_MENU_HARD_BUTTON = 2;
+=======
+
+	private const int MAIN_MENU_QUIT_BUTTON = 3;
+	private const int SETUP_MENU_EASY_BUTTON = 0;
+	private const int SETUP_MENU_MEDIUM_BUTTON = 1;
+	private const int SETUP_MENU_HARD_BUTTON = 2;
+>>>>>>> 1314e20ff95b95ebf5fe56df3cd1a74c6d448c04
 
 	private const int GAME_MENU_RETURN_BUTTON = 0;
 	private const int GAME_MENU_SURRENDER_BUTTON = 1;
 	private const int GAME_MENU_QUIT_BUTTON = 2;
+<<<<<<< HEAD
 
 	private const int OPTION_MENU_FULLSCREEN_BUTTON = 0;
 	private const int OPTION_MENU_BORDERLESS_BUTTON = 1;
 	private static readonly Color MENU_COLOR = SwinGame.RGBAColor(2, 167, 252, 255);
+=======
+	private static readonly Color MENU_COLOR = SwinGame.RGBAColor(3, 165, 252, 255);
+>>>>>>> 1314e20ff95b95ebf5fe56df3cd1a74c6d448c04
 
 	private static readonly Color HIGHLIGHT_COLOR = SwinGame.RGBAColor(1, 57, 86, 255);
 
