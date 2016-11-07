@@ -23,17 +23,9 @@ static class MenuController
 			"PLAY",
 			"SETUP",
 			"SCORES",
-<<<<<<< HEAD
+			"OPTION",
 			"MUTE",
 			"QUIT"
-=======
-			"QUIT",
-<<<<<<< HEAD
-			"INSTRUCTIONS"
-=======
-			"INSTRUCTION"
->>>>>>> origin
->>>>>>> 1314e20ff95b95ebf5fe56df3cd1a74c6d448c04
 		},
 		new string[] {
 			"RETURN",
@@ -44,13 +36,17 @@ static class MenuController
 			"EASY",
 			"MEDIUM",
 			"HARD"
+		},
+		//Option_menu
+		new string[] {
+			"FULLSCREEN",
+			"BORDERLESS"
 		}
-
 	};
 	private const int MENU_TOP = 575;
 	private const int MENU_LEFT = 30;
 	private const int MENU_GAP = 0;
-	private const int BUTTON_WIDTH = 75;
+	private const int BUTTON_WIDTH = 90;
 	private const int BUTTON_HEIGHT = 15;
 	private const int BUTTON_SEP = BUTTON_WIDTH + MENU_GAP;
 
@@ -59,39 +55,31 @@ static class MenuController
 	private const int MAIN_MENU = 0;
 	private const int GAME_MENU = 1;
 	private const int SETUP_MENU = 2;
-	public const int DEPLOYING_MENU = 3;
-	private const int OPTION_MENU = 4;
-	private const int MUTE_MENU = 5;
+	private const int OPTION_MENU = 3;
+	private const int MUTE_MENU = 4;
 
 	private const int MAIN_MENU_PLAY_BUTTON = 0;
 	private const int MAIN_MENU_SETUP_BUTTON = 1;
 	private const int MAIN_MENU_TOP_SCORES_BUTTON = 2;
-	private const int MAIN_MENU_MUTE_BUTTON = 3;
-	private const int MAIN_MENU_QUIT_BUTTON = 4;
+	private const int MAIN_MENU_OPTION_BUTTON = 3;
+	private const int MAIN_MENU_MUTE_BUTTON = 4;
+	private const int MAIN_MENU_QUIT_BUTTON = 5;
 
-<<<<<<< HEAD
+
 	public const int SETUP_MENU_EASY_BUTTON = 0;
 	public const int SETUP_MENU_MEDIUM_BUTTON = 1;
 	public const int SETUP_MENU_HARD_BUTTON = 2;
-=======
 
-	private const int MAIN_MENU_QUIT_BUTTON = 3;
-	private const int SETUP_MENU_EASY_BUTTON = 0;
-	private const int SETUP_MENU_MEDIUM_BUTTON = 1;
-	private const int SETUP_MENU_HARD_BUTTON = 2;
->>>>>>> 1314e20ff95b95ebf5fe56df3cd1a74c6d448c04
+
+
 
 	private const int GAME_MENU_RETURN_BUTTON = 0;
 	private const int GAME_MENU_SURRENDER_BUTTON = 1;
 	private const int GAME_MENU_QUIT_BUTTON = 2;
-<<<<<<< HEAD
 
 	private const int OPTION_MENU_FULLSCREEN_BUTTON = 0;
 	private const int OPTION_MENU_BORDERLESS_BUTTON = 1;
 	private static readonly Color MENU_COLOR = SwinGame.RGBAColor(2, 167, 252, 255);
-=======
-	private static readonly Color MENU_COLOR = SwinGame.RGBAColor(3, 165, 252, 255);
->>>>>>> 1314e20ff95b95ebf5fe56df3cd1a74c6d448c04
 
 	private static readonly Color HIGHLIGHT_COLOR = SwinGame.RGBAColor(1, 57, 86, 255);
 
@@ -115,6 +103,16 @@ static class MenuController
 		if (!handled) {
 			HandleMenuInput(MAIN_MENU, 0, 0);
 		}
+	}
+
+	public static void HandleOptionMenuInput()
+		{
+				bool handled = false;
+			handled = HandleMenuInput(OPTION_MENU, 1, 3);
+
+			if (!handled) {
+					HandleMenuInput(MAIN_MENU, 0, 0);
+			}
 	}
 
 	/// <summary>
@@ -198,6 +196,11 @@ static class MenuController
 		DrawButtons(SETUP_MENU, 1, 1);
 	}
 
+	public static void DrawOption()
+	{
+		DrawButtons (MAIN_MENU);
+		DrawButtons (OPTION_MENU, 1, 3);
+	}
 	/// <summary>
 	/// Draw the buttons associated with a top level menu.
 	/// </summary>
@@ -280,6 +283,9 @@ static class MenuController
 			case GAME_MENU:
 				PerformGameMenuAction(button);
 				break;
+		case OPTION_MENU:
+			PerformOptionMenuAction (button);
+			break;
 		}
 	}
 
@@ -299,6 +305,9 @@ static class MenuController
 			case MAIN_MENU_TOP_SCORES_BUTTON:
 				GameController.AddNewState(GameState.ViewingHighScores);
 				break;
+		    case MAIN_MENU_OPTION_BUTTON:
+			     GameController.AddNewState (GameState.AlteringOption);
+			    break;
 		    case MAIN_MENU_MUTE_BUTTON:
 			    GameResources.MuteButtonPressed();
 			    break;
@@ -352,6 +361,19 @@ static class MenuController
 				break;
 		}
 	}
+	public static void PerformOptionMenuAction(int button)
+		{
+				switch (button) {
+				case OPTION_MENU_FULLSCREEN_BUTTON:
+						SwinGame.ToggleFullScreen ();
+						break;
+				case OPTION_MENU_BORDERLESS_BUTTON:
+						SwinGame.ToggleWindowBorder ();
+						break;
+				}
+				//Always end state - handles exit button as well
+				GameController.EndCurrentState();
+			}
 }
 
 //=======================================================
