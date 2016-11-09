@@ -252,20 +252,22 @@ static class UtilityFunctions
 
 
 			//view instructions
-			SwinGame.DrawText ("Instructions On How To Play", Color.White, GameResources.GameFont ("Courier"), 25, 5);
-			SwinGame.DrawText ("1. The game is played by secretly arranging the ships on the primary grid.", Color.White, GameResources.GameFont ("Courier"), 5, 40);	
-			SwinGame.DrawText ("2. Each ship is set on a number of squares on the grid, placed either vertically or horizontally.", Color.White, GameResources.GameFont ("Courier"), 5, 60);
-			SwinGame.DrawText ("3. The number of squares a ship occupies depends on the ships size.", Color.White, GameResources.GameFont ("Courier"), 5, 80);
-			SwinGame.DrawText ("4. Only one ship can occupy a square on the grid at a time, overlapping is not allowed.", Color.White, GameResources.GameFont ("Courier"), 5, 100);
-			SwinGame.DrawText ("5. The number and variants of ships are equal for both the players in a game.", Color.White, GameResources.GameFont ("Courier"), 5, 120);
-			SwinGame.DrawText ("6. The users have to drag and drop the ships into squares of the grid.", Color.White, GameResources.GameFont ("Courier"), 5, 140);
-			SwinGame.DrawText ("7. One players ships are hidden from the other player, if the player hits the correct", Color.White, GameResources.GameFont ("Courier"), 5, 160);
-			SwinGame.DrawText ("coordinate that their opponent has placed their ship, it will be crossed with red.", Color.White, GameResources.GameFont ("Courier"), 5, 175);
-			SwinGame.DrawText ("8. If one player places the correct coordinate of the opponents ship, that is an attack and", Color.White, GameResources.GameFont ("Courier"), 5, 195);
-			SwinGame.DrawText ("the ship will be sunk, you will notice this in the game with an explosion animation in red.", Color.White, GameResources.GameFont ("Courier"), 5, 210);
-			SwinGame.DrawText ("9. The winner will be selected depending on the number of opponents ships they sink", Color.White, GameResources.GameFont ("Courier"), 5, 230);
-			SwinGame.DrawText ("and points are given accordingly.", Color.White, GameResources.GameFont ("Courier"), 5, 245);
-			SwinGame.DrawText ("PRESS ESC to go back to the main menu.", Color.White, GameResources.GameFont ("Courier"), 250, 350);
+			SwinGame.FillRectangle (SwinGame.RGBAColor(0,0,0,190), 0, 0, 1000, 1000);
+			SwinGame.DrawRectangle (Color.Gray, 15, 90, 760, 450);
+			SwinGame.DrawText ("INSTRUCTIONS", Color.White, GameResources.GameFont ("Heading"), (SwinGame.ScreenWidth () / 2) - 130, 100);
+			SwinGame.DrawText ("1. The game is played by secretly arranging the ships on the grid.", Color.White, GameResources.GameFont ("Content"), 30, 160);	
+			SwinGame.DrawText ("2. Each ship occupies squares on the grid, vertically or horizontally.", Color.White, GameResources.GameFont ("Content"), 30, 185);
+			SwinGame.DrawText ("3. The number of squares a ship occupies depends on the ships size.", Color.White, GameResources.GameFont ("Content"), 30, 210);
+			SwinGame.DrawText ("4. Only one ship can occupy a square on the grid at a time.", Color.White, GameResources.GameFont ("Content"), 30, 235);
+			SwinGame.DrawText ("5. The number and variants of ships are equal for both players.", Color.White, GameResources.GameFont ("Content"), 30, 260);
+			SwinGame.DrawText ("6. The players have to drag and drop the ships into the grid.", Color.White, GameResources.GameFont ("Content"), 30, 285);
+			SwinGame.DrawText ("7. One player's ships are hidden from the other player, if the player", Color.White, GameResources.GameFont ("Content"), 30, 310);
+			SwinGame.DrawText ("hits an opponent ship, it will be marked in red.", Color.White, GameResources.GameFont ("Content"), 55, 335);
+			SwinGame.DrawText ("8. If a player hits all squares of an enemy ship, that is an attack!", Color.White, GameResources.GameFont ("Content"), 30, 360);
+			SwinGame.DrawText ("the ship will be sunk, you will notice this in the game in red.", Color.White, GameResources.GameFont ("Content"), 55, 385);
+			SwinGame.DrawText ("9. The winner will be selected based on the number of ships they sink", Color.White, GameResources.GameFont ("Content"), 30, 415);
+			SwinGame.DrawText ("and points are given accordingly.", Color.White, GameResources.GameFont ("Content"), 55, 440);
+			SwinGame.DrawText ("** PRESS ESC to go back to the Main Menu **", Color.White, GameResources.GameFont ("Content"), 180, 515);
 			if (SwinGame.KeyTyped (KeyCode.vk_ESCAPE))
 			{
 				GameController.EndCurrentState ();

@@ -29,7 +29,11 @@ public static class GameResources
 
 	private static void LoadFonts()
 	{
+		//instructions content
+		NewFont ("Content", "cour.ttf", 17);
 		NewFont("ArialLarge", "arial.ttf", 80);
+		//instructions heading
+		NewFont ("Heading", "cour.ttf", 32);
 		NewFont("Courier", "cour.ttf", 14);
 		NewFont("CourierSmall", "cour.ttf", 8);
 		NewFont("Menu", "ffaccess.ttf", 8);
