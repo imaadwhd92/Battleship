@@ -78,7 +78,8 @@ static class MenuController
 
 	private const int GAME_MENU_RETURN_BUTTON = 0;
 	private const int GAME_MENU_SURRENDER_BUTTON = 1;
-	private const int GAME_MENU_QUIT_BUTTON = 2;
+	private const int GAME_MENU_INSTRUCTIONS_BUTTON = 2;
+	private const int GAME_MENU_QUIT_BUTTON = 3;
 
 	private const int OPTION_MENU_FULLSCREEN_BUTTON = 0;
 	private const int OPTION_MENU_BORDERLESS_BUTTON = 1;
@@ -362,6 +363,9 @@ static class MenuController
 			GameController.EndCurrentState();
 				//end game
 				break;
+		case GAME_MENU_INSTRUCTIONS_BUTTON:
+			GameController.AddNewState(GameState.Viewinstructions);
+			break;
 			case GAME_MENU_QUIT_BUTTON:
 			GameController.AddNewState(GameState.Quitting);
 				break;
