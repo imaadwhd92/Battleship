@@ -23,6 +23,7 @@ static class MenuController
 			"PLAY",
 			"SETUP",
 			"SCORES",
+			"INSTRUCTIONS",
 			"OPTION",
 			"MUTE",
 			"QUIT"
@@ -30,6 +31,7 @@ static class MenuController
 		new string[] {
 			"RETURN",
 			"SURRENDER",
+			"INSTRUCTIONS",
 			"QUIT"
 		},
 		new string[] {
@@ -61,9 +63,10 @@ static class MenuController
 	private const int MAIN_MENU_PLAY_BUTTON = 0;
 	private const int MAIN_MENU_SETUP_BUTTON = 1;
 	private const int MAIN_MENU_TOP_SCORES_BUTTON = 2;
-	private const int MAIN_MENU_OPTION_BUTTON = 3;
-	private const int MAIN_MENU_MUTE_BUTTON = 4;
-	private const int MAIN_MENU_QUIT_BUTTON = 5;
+	private const int MAIN_MENU_INSTRUCTIONS_BUTTON = 3;
+	private const int MAIN_MENU_OPTION_BUTTON = 4;
+	private const int MAIN_MENU_MUTE_BUTTON = 5;
+	private const int MAIN_MENU_QUIT_BUTTON = 6;
 
 
 	public const int SETUP_MENU_EASY_BUTTON = 0;
@@ -305,6 +308,9 @@ static class MenuController
 			case MAIN_MENU_TOP_SCORES_BUTTON:
 				GameController.AddNewState(GameState.ViewingHighScores);
 				break;
+			case MAIN_MENU_INSTRUCTIONS_BUTTON:
+			GameController.AddNewState(GameState.Viewinstructions);
+			break;
 		    case MAIN_MENU_OPTION_BUTTON:
 			     GameController.AddNewState (GameState.AlteringOption);
 			    break;

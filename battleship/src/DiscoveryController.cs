@@ -11,8 +11,7 @@ using SwinGameSDK;
 /// <summary>
 
 
-using System.Diagnostics;
-using SwinGameSDK;
+
 
 /// <Info>
 /// The battle phase is handled by the DiscoveryController.
@@ -29,7 +28,7 @@ static class DiscoveryController
 	{
 
 		if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) 
-		{
+
 
 		if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) {
 
@@ -44,7 +43,7 @@ static class DiscoveryController
 		{
 			GameController.AddNewState(GameState.ViewingMainMenu);
 		}
-		}
+
 	}
 
 	/// <summary>
