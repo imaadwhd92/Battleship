@@ -43,6 +43,9 @@ static class DiscoveryController
 		{
 			GameController.AddNewState(GameState.ViewingMainMenu);
 		}
+		if (UtilityFunctions.IsMouseInRectangle((SwinGame.ScreenWidth () / 2) + 120, 380, 75, 15) && SwinGame.MouseClicked(MouseButton.LeftButton)) {
+			GameController.AddNewState(GameState.ViewingMainMenu);
+		}
 
 	}
 
