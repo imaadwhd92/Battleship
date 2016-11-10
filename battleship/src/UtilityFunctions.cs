@@ -268,6 +268,7 @@ static class UtilityFunctions
 			SwinGame.DrawText ("9. The winner will be selected based on the number of ships they sink", Color.White, GameResources.GameFont ("Content"), 30, 415);
 			SwinGame.DrawText ("and points are given accordingly.", Color.White, GameResources.GameFont ("Content"), 55, 440);
 			SwinGame.DrawText ("** PRESS ESC to go back to the Main Menu **", Color.White, GameResources.GameFont ("Content"), 180, 515);
+			//SwinGame.DrawTextLines("BACK", Color.White, Color.Gray, GameResources.GameFont("Content"), FontAlignment.AlignCenter, (SwinGame.ScreenWidth()/2) + 200, 480, 100, 100);
 			if (SwinGame.KeyTyped (KeyCode.vk_ESCAPE))
 			{
 				GameController.EndCurrentState ();

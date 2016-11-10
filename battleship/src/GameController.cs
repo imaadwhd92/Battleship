@@ -345,7 +345,7 @@ public static class GameController
 			EndingGameController.DrawEndOfGame();
 			break;
 		
-		UtilityFunctions.DrawBackground ();
+	
 
 		switch (CurrentState)
 		{

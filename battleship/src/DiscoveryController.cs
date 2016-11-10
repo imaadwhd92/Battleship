@@ -120,7 +120,7 @@ static class DiscoveryController
 			SwinGame.DrawText (GameController.HumanPlayer.Hits.ToString (), Color.White, GameResources.GameFont ("Menu"), SCORES_LEFT, HITS_TOP);
 			SwinGame.DrawText (GameController.HumanPlayer.Missed.ToString (), Color.White, GameResources.GameFont ("Menu"), SCORES_LEFT, SPLASH_TOP);
 			SwinGame.DrawTextLines ("Main Menu", Color.Black, Color.White, GameResources.GameFont ("Menu"), FontAlignment.AlignCenter, (SwinGame.ScreenWidth () / 2) + 300, 94, 75, 15);
-			SwinGame.DrawTextLines("REPLAY", Color.Black, Color.White, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, (SwinGame.ScreenWidth()/2), 94, 80, 15);
+			SwinGame.DrawTextLines("REPLAY", Color.Black, Color.White, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, (SwinGame.ScreenWidth()/2), 94, 75, 15);
 
 
 			SwinGame.DrawText (GameController.HumanPlayer.Shots.ToString (), Color.White, GameResources.GameFont ("Menu"), SCORES_LEFT, SHOTS_TOP);
